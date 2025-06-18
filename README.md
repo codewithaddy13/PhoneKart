@@ -1,7 +1,7 @@
 # PhoneKart
 Second Hand Smart-Phones dealing platform <br>
 
-A second hand smartphone dealing system built as desktop application built in Java Maven. Leverages ML and ElasticSearch<br>
+A second hand smartphone dealing system built as desktop application zin Java Maven. Leverages ML and ElasticSearch<br>
 
 ELASTICSEARCH <br>
 -> Makes use of an Elasticsearch engine to make the products easily retrievable to the users. <br>
@@ -10,5 +10,5 @@ ELASTICSEARCH <br>
 ML MODEL <br>
 -> A Machine Learning model trained on real time second hand smartphones dataset, using the supervised regression models. <br>
 -> The trained model is imported into a PMML format to suit Java environment. <br>
-Helps the user to get the best possible market price for his second hand product wrt to all it's technical parameters like battercy capacity, RAM, storage, etc.
+Helps the user to get the best possible market price for his second hand product wrt to all it's technical parameters like battery capacity, RAM, storage, etc.
 
