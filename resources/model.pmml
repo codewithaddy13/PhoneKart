@@ -1,0 +1,1170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
+	<Header>
+		<Application name="SkLearn2PMML package" version="0.116.4"/>
+		<Timestamp>2025-04-15T17:04:14Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="y" optype="continuous" dataType="double"/>
+		<DataField name="Battery Capacity (mAh)" optype="continuous" dataType="float"/>
+		<DataField name="screen_size(inches)" optype="continuous" dataType="float"/>
+		<DataField name="storage" optype="continuous" dataType="float"/>
+		<DataField name="RAM" optype="continuous" dataType="float"/>
+		<DataField name="cam_1" optype="continuous" dataType="float"/>
+		<DataField name="cam_2" optype="continuous" dataType="float"/>
+		<DataField name="cam_3" optype="continuous" dataType="float"/>
+		<DataField name="cam_4" optype="continuous" dataType="float"/>
+	</DataDictionary>
+	<TreeModel functionName="regression" algorithmName="sklearn.tree._classes.DecisionTreeRegressor" splitCharacteristic="binarySplit">
+		<MiningSchema>
+			<MiningField name="y" usageType="target"/>
+			<MiningField name="cam_2"/>
+			<MiningField name="RAM"/>
+			<MiningField name="Battery Capacity (mAh)"/>
+			<MiningField name="screen_size(inches)"/>
+			<MiningField name="storage"/>
+			<MiningField name="cam_1"/>
+			<MiningField name="cam_3"/>
+			<MiningField name="cam_4"/>
+		</MiningSchema>
+		<LocalTransformations>
+			<DerivedField name="double(cam_2)" optype="continuous" dataType="double">
+				<FieldRef field="cam_2"/>
+			</DerivedField>
+			<DerivedField name="double(RAM)" optype="continuous" dataType="double">
+				<FieldRef field="RAM"/>
+			</DerivedField>
+			<DerivedField name="double(Battery Capacity (mAh))" optype="continuous" dataType="double">
+				<FieldRef field="Battery Capacity (mAh)"/>
+			</DerivedField>
+			<DerivedField name="double(screen_size(inches))" optype="continuous" dataType="double">
+				<FieldRef field="screen_size(inches)"/>
+			</DerivedField>
+			<DerivedField name="double(storage)" optype="continuous" dataType="double">
+				<FieldRef field="storage"/>
+			</DerivedField>
+			<DerivedField name="double(cam_1)" optype="continuous" dataType="double">
+				<FieldRef field="cam_1"/>
+			</DerivedField>
+			<DerivedField name="double(cam_3)" optype="continuous" dataType="double">
+				<FieldRef field="cam_3"/>
+			</DerivedField>
+			<DerivedField name="double(cam_4)" optype="continuous" dataType="double">
+				<FieldRef field="cam_4"/>
+			</DerivedField>
+		</LocalTransformations>
+		<Node id="0" score="34126.82725563921">
+			<True/>
+			<Node id="1" score="22130.745230769222">
+				<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="9.0"/>
+				<Node id="2" score="16624.03906542056">
+					<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="5.0"/>
+					<Node id="3" score="37333.496666666666">
+						<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="3420.0"/>
+						<Node id="4" score="40754.104999999996">
+							<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="3.5"/>
+							<Node id="5" score="37612.729999999996">
+								<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="3.5"/>
+								<Node id="6" score="35518.479999999996">
+									<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="5.3999998569488525"/>
+									<Node id="7" score="33424.229999999996">
+										<SimplePredicate field="double(storage)" operator="lessOrEqual" value="96.0"/>
+									</Node>
+									<Node id="8" score="37612.729999999996">
+										<SimplePredicate field="double(storage)" operator="greaterThan" value="96.0"/>
+									</Node>
+								</Node>
+								<Node id="9" score="41801.229999999996">
+									<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="5.3999998569488525"/>
+								</Node>
+							</Node>
+							<Node id="10" score="50178.229999999996">
+								<SimplePredicate field="double(cam_2)" operator="greaterThan" value="3.5"/>
+							</Node>
+						</Node>
+						<Node id="11" score="30492.28">
+							<SimplePredicate field="double(RAM)" operator="greaterThan" value="3.5"/>
+							<Node id="12" score="33424.229999999996">
+								<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="6.5"/>
+							</Node>
+							<Node id="13" score="27560.329999999998">
+								<SimplePredicate field="double(cam_2)" operator="greaterThan" value="6.5"/>
+							</Node>
+						</Node>
+					</Node>
+					<Node id="14" score="15393.774257425743">
+						<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="3420.0"/>
+						<Node id="15" score="13594.085737704914">
+							<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="3.5"/>
+							<Node id="16" score="12574.807777777774">
+								<SimplePredicate field="double(storage)" operator="lessOrEqual" value="96.0"/>
+								<Node id="17" score="9011.25857142857">
+									<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="10.5"/>
+									<Node id="18" score="10387.48">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4725.0"/>
+										<Node id="19" score="10806.33">
+											<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.505000114440918"/>
+										</Node>
+										<Node id="20" score="9968.63">
+											<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.505000114440918"/>
+										</Node>
+									</Node>
+									<Node id="21" score="8460.769999999999">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4725.0"/>
+										<Node id="22" score="8712.08">
+											<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4975.0"/>
+										</Node>
+										<Node id="23" score="8293.23">
+											<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4975.0"/>
+											<Node id="24" score="8293.23">
+												<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="1.0"/>
+											</Node>
+											<Node id="25" score="8293.23">
+												<SimplePredicate field="double(cam_2)" operator="greaterThan" value="1.0"/>
+											</Node>
+										</Node>
+									</Node>
+								</Node>
+								<Node id="26" score="13231.251052631576">
+									<SimplePredicate field="double(cam_1)" operator="greaterThan" value="10.5"/>
+									<Node id="27" score="12155.957777777778">
+										<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.505000114440918"/>
+										<Node id="28" score="9968.63">
+											<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="2.5"/>
+											<Node id="29" score="11644.029999999999">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4750.0"/>
+											</Node>
+											<Node id="30" score="8293.23">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4750.0"/>
+											</Node>
+										</Node>
+										<Node id="31" score="12429.37375">
+											<SimplePredicate field="double(RAM)" operator="greaterThan" value="2.5"/>
+											<Node id="32" score="12223.976153846157">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5500.0"/>
+												<Node id="33" score="12062.88">
+													<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+													<Node id="34" score="11644.029999999999">
+														<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="3.5"/>
+														<Node id="35" score="12062.88">
+															<SimplePredicate field="double(storage)" operator="lessOrEqual" value="48.0"/>
+														</Node>
+														<Node id="36" score="10806.33">
+															<SimplePredicate field="double(storage)" operator="greaterThan" value="48.0"/>
+														</Node>
+													</Node>
+													<Node id="37" score="12242.387142857142">
+														<SimplePredicate field="double(RAM)" operator="greaterThan" value="3.5"/>
+														<Node id="38" score="11644.029999999999">
+															<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4615.0"/>
+														</Node>
+														<Node id="39" score="12342.113333333333">
+															<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4615.0"/>
+														</Node>
+													</Node>
+												</Node>
+												<Node id="40" score="12760.963333333333">
+													<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+													<Node id="41" score="14157.13">
+														<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="3.5"/>
+													</Node>
+													<Node id="42" score="12062.88">
+														<SimplePredicate field="double(RAM)" operator="greaterThan" value="3.5"/>
+													</Node>
+												</Node>
+											</Node>
+											<Node id="43" score="13319.43">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5500.0"/>
+												<Node id="44" score="14994.83">
+													<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+												</Node>
+												<Node id="45" score="12481.73">
+													<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+													<Node id="46" score="12481.73">
+														<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+													</Node>
+													<Node id="47" score="12481.73">
+														<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+													</Node>
+												</Node>
+											</Node>
+										</Node>
+									</Node>
+									<Node id="48" score="14199.015">
+										<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.505000114440918"/>
+										<Node id="49" score="13762.918235294115">
+											<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+											<Node id="50" score="12202.496666666666">
+												<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+												<Node id="51" score="11644.029999999999">
+													<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="1.0"/>
+												</Node>
+												<Node id="52" score="12314.189999999999">
+													<SimplePredicate field="double(cam_2)" operator="greaterThan" value="1.0"/>
+													<Node id="53" score="12062.88">
+														<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.520000219345093"/>
+													</Node>
+													<Node id="54" score="12481.730000000001">
+														<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.520000219345093"/>
+													</Node>
+												</Node>
+											</Node>
+											<Node id="55" score="14614.057272727274">
+												<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+												<Node id="56" score="13319.43">
+													<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="3.5"/>
+													<Node id="57" score="12900.579999999998">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5025.0"/>
+														<Node id="58" score="12481.73">
+															<SimplePredicate field="double(storage)" operator="lessOrEqual" value="48.0"/>
+														</Node>
+														<Node id="59" score="13319.429999999998">
+															<SimplePredicate field="double(storage)" operator="greaterThan" value="48.0"/>
+														</Node>
+													</Node>
+													<Node id="60" score="14157.13">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5025.0"/>
+													</Node>
+												</Node>
+												<Node id="61" score="15099.5425">
+													<SimplePredicate field="double(RAM)" operator="greaterThan" value="3.5"/>
+													<Node id="62" score="13738.279999999999">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4615.0"/>
+													</Node>
+													<Node id="63" score="15553.296666666667">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4615.0"/>
+														<Node id="64" score="15274.063333333334">
+															<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.515000104904175"/>
+														</Node>
+														<Node id="65" score="15832.529999999999">
+															<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.515000104904175"/>
+														</Node>
+													</Node>
+												</Node>
+											</Node>
+										</Node>
+										<Node id="66" score="16670.23">
+											<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+											<Node id="67" score="16670.23">
+												<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+											</Node>
+											<Node id="68" score="16670.23">
+												<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+											</Node>
+										</Node>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="69" score="16460.805">
+								<SimplePredicate field="double(storage)" operator="greaterThan" value="96.0"/>
+								<Node id="70" score="15832.529999999999">
+									<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.565000057220459"/>
+									<Node id="71" score="16879.655">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5500.0"/>
+										<Node id="72" score="17926.78">
+											<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="49.0"/>
+											<Node id="73" score="18513.170000000002">
+												<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.515000104904175"/>
+												<Node id="74" score="18973.905">
+													<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+													<Node id="75" score="16670.23">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4615.0"/>
+													</Node>
+													<Node id="76" score="19741.796666666665">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4615.0"/>
+														<Node id="77" score="20858.73">
+															<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.505000114440918"/>
+														</Node>
+														<Node id="78" score="19183.329999999998">
+															<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.505000114440918"/>
+														</Node>
+													</Node>
+												</Node>
+												<Node id="79" score="16670.23">
+													<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+												</Node>
+											</Node>
+											<Node id="80" score="14994.83">
+												<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.515000104904175"/>
+											</Node>
+										</Node>
+										<Node id="81" score="13738.279999999999">
+											<SimplePredicate field="double(cam_1)" operator="greaterThan" value="49.0"/>
+											<Node id="82" score="12481.73">
+												<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.505000114440918"/>
+											</Node>
+											<Node id="83" score="14994.83">
+												<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.505000114440918"/>
+											</Node>
+										</Node>
+									</Node>
+									<Node id="84" score="14157.13">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5500.0"/>
+										<Node id="85" score="13319.429999999998">
+											<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+										</Node>
+										<Node id="86" score="15413.68">
+											<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+											<Node id="87" score="14994.83">
+												<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="49.0"/>
+											</Node>
+											<Node id="88" score="15832.529999999999">
+												<SimplePredicate field="double(cam_1)" operator="greaterThan" value="49.0"/>
+											</Node>
+										</Node>
+									</Node>
+								</Node>
+								<Node id="89" score="19183.329999999998">
+									<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.565000057220459"/>
+									<Node id="90" score="19183.329999999998">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5500.0"/>
+									</Node>
+									<Node id="91" score="19183.329999999998">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5500.0"/>
+									</Node>
+								</Node>
+							</Node>
+						</Node>
+						<Node id="92" score="18138.29924999999">
+							<SimplePredicate field="double(cam_2)" operator="greaterThan" value="3.5"/>
+							<Node id="93" score="17214.735">
+								<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.575000047683716"/>
+								<Node id="94" score="16413.142758620692">
+									<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="3.5"/>
+									<Node id="95" score="25047.23">
+										<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="5.75"/>
+									</Node>
+									<Node id="96" score="16104.782500000001">
+										<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="5.75"/>
+										<Node id="97" score="14999.0185">
+											<SimplePredicate field="double(storage)" operator="lessOrEqual" value="96.0"/>
+											<Node id="98" score="11113.486666666666">
+												<SimplePredicate field="double(storage)" operator="lessOrEqual" value="48.0"/>
+												<Node id="99" score="11644.029999999999">
+													<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+												</Node>
+												<Node id="100" score="10848.215">
+													<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+													<Node id="101" score="10806.33">
+														<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="2.5"/>
+													</Node>
+													<Node id="102" score="10890.1">
+														<SimplePredicate field="double(RAM)" operator="greaterThan" value="2.5"/>
+													</Node>
+												</Node>
+											</Node>
+											<Node id="103" score="15684.700588235293">
+												<SimplePredicate field="double(storage)" operator="greaterThan" value="48.0"/>
+												<Node id="104" score="13319.429999999998">
+													<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.325000047683716"/>
+												</Node>
+												<Node id="105" score="15832.529999999999">
+													<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.325000047683716"/>
+													<Node id="106" score="16670.23">
+														<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="1.0"/>
+														<Node id="107" score="15274.063333333334">
+															<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+															<Node id="108" score="15832.529999999999">
+																<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.369999885559082"/>
+															</Node>
+															<Node id="109" score="14994.83">
+																<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.369999885559082"/>
+															</Node>
+														</Node>
+														<Node id="110" score="17717.355">
+															<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+															<Node id="111" score="18764.48">
+																<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="6.5"/>
+																<Node id="112" score="20858.73">
+																	<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.444999933242798"/>
+																</Node>
+																<Node id="113" score="16670.23">
+																	<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.444999933242798"/>
+																</Node>
+															</Node>
+															<Node id="114" score="16670.23">
+																<SimplePredicate field="double(cam_2)" operator="greaterThan" value="6.5"/>
+															</Node>
+														</Node>
+													</Node>
+													<Node id="115" score="15180.985555555555">
+														<SimplePredicate field="double(cam_4)" operator="greaterThan" value="1.0"/>
+														<Node id="116" score="15832.529999999999">
+															<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5525.0"/>
+															<Node id="117" score="16670.23">
+																<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="3.5"/>
+															</Node>
+															<Node id="118" score="15553.296666666667">
+																<SimplePredicate field="double(RAM)" operator="greaterThan" value="3.5"/>
+																<Node id="119" score="14994.83">
+																	<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5025.0"/>
+																</Node>
+																<Node id="120" score="16670.23">
+																	<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5025.0"/>
+																</Node>
+															</Node>
+														</Node>
+														<Node id="121" score="14659.75">
+															<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5525.0"/>
+															<Node id="122" score="15832.529999999999">
+																<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.450000047683716"/>
+															</Node>
+															<Node id="123" score="14366.555">
+																<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.450000047683716"/>
+																<Node id="124" score="14994.83">
+																	<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+																</Node>
+																<Node id="125" score="14157.13">
+																	<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+																	<Node id="126" score="14157.13">
+																		<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.515000104904175"/>
+																	</Node>
+																	<Node id="127" score="14157.13">
+																		<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.515000104904175"/>
+																	</Node>
+																</Node>
+															</Node>
+														</Node>
+													</Node>
+												</Node>
+											</Node>
+										</Node>
+										<Node id="128" score="18869.1925">
+											<SimplePredicate field="double(storage)" operator="greaterThan" value="96.0"/>
+											<Node id="129" score="22952.98">
+												<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="1.0"/>
+												<Node id="130" score="20858.73">
+													<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="6.5"/>
+												</Node>
+												<Node id="131" score="25047.23">
+													<SimplePredicate field="double(cam_2)" operator="greaterThan" value="6.5"/>
+												</Node>
+											</Node>
+											<Node id="132" score="17507.929999999997">
+												<SimplePredicate field="double(cam_4)" operator="greaterThan" value="1.0"/>
+												<Node id="133" score="18764.479999999996">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5500.0"/>
+													<Node id="134" score="18345.629999999997">
+														<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="49.0"/>
+													</Node>
+													<Node id="135" score="19183.329999999998">
+														<SimplePredicate field="double(cam_1)" operator="greaterThan" value="49.0"/>
+													</Node>
+												</Node>
+												<Node id="136" score="16879.655">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5500.0"/>
+													<Node id="137" score="17228.696666666667">
+														<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="49.0"/>
+													</Node>
+													<Node id="138" score="15832.529999999999">
+														<SimplePredicate field="double(cam_1)" operator="greaterThan" value="49.0"/>
+													</Node>
+												</Node>
+											</Node>
+										</Node>
+									</Node>
+								</Node>
+								<Node id="139" score="21863.969999999998">
+									<SimplePredicate field="double(cam_3)" operator="greaterThan" value="3.5"/>
+									<Node id="140" score="20021.03">
+										<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="20.5"/>
+										<Node id="141" score="20858.73">
+											<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.3500001430511475"/>
+										</Node>
+										<Node id="142" score="19183.329999999998">
+											<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.3500001430511475"/>
+										</Node>
+									</Node>
+									<Node id="143" score="23092.596666666665">
+										<SimplePredicate field="double(cam_1)" operator="greaterThan" value="20.5"/>
+										<Node id="144" score="23371.829999999998">
+											<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="3.5"/>
+										</Node>
+										<Node id="145" score="22534.129999999997">
+											<SimplePredicate field="double(cam_4)" operator="greaterThan" value="3.5"/>
+										</Node>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="146" score="23371.829999999998">
+								<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.575000047683716"/>
+								<Node id="147" score="22534.13">
+									<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.815000057220459"/>
+									<Node id="148" score="22254.896666666667">
+										<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="6.5"/>
+										<Node id="149" score="23371.829999999998">
+											<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+										</Node>
+										<Node id="150" score="21696.43">
+											<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+										</Node>
+									</Node>
+									<Node id="151" score="23371.829999999998">
+										<SimplePredicate field="double(cam_2)" operator="greaterThan" value="6.5"/>
+									</Node>
+								</Node>
+								<Node id="152" score="25047.23">
+									<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.815000057220459"/>
+								</Node>
+							</Node>
+						</Node>
+					</Node>
+				</Node>
+				<Node id="153" score="28826.399318181808">
+					<SimplePredicate field="double(RAM)" operator="greaterThan" value="5.0"/>
+					<Node id="154" score="37147.3411111111">
+						<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4670.0"/>
+						<Node id="155" score="34733.13624999999">
+							<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="10.5"/>
+							<Node id="156" score="33184.887142857144">
+								<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.620000123977661"/>
+								<Node id="157" score="31845.487692307684">
+									<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="10.0"/>
+									<Node id="158" score="29738.349999999995">
+										<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="49.0"/>
+										<Node id="159" score="28816.879999999997">
+											<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="3.5"/>
+											<Node id="160" score="27560.329999999998">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4255.0"/>
+												<Node id="161" score="29235.73">
+													<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+												</Node>
+												<Node id="162" score="27001.86333333333">
+													<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+													<Node id="163" score="26722.629999999997">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4150.0"/>
+													</Node>
+													<Node id="164" score="27560.329999999998">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4150.0"/>
+													</Node>
+												</Node>
+											</Node>
+											<Node id="165" score="30073.43">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4255.0"/>
+											</Node>
+										</Node>
+										<Node id="166" score="33424.229999999996">
+											<SimplePredicate field="double(cam_3)" operator="greaterThan" value="3.5"/>
+											<Node id="167" score="29235.73">
+												<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+											</Node>
+											<Node id="168" score="37612.729999999996">
+												<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+											</Node>
+										</Node>
+									</Node>
+									<Node id="169" score="33162.448749999996">
+										<SimplePredicate field="double(cam_1)" operator="greaterThan" value="49.0"/>
+										<Node id="170" score="29738.35">
+											<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+											<Node id="171" score="28398.03">
+												<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="3.5"/>
+												<Node id="172" score="29235.73">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4400.0"/>
+												</Node>
+												<Node id="173" score="27560.329999999998">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4400.0"/>
+												</Node>
+											</Node>
+											<Node id="174" score="30631.896666666664">
+												<SimplePredicate field="double(cam_3)" operator="greaterThan" value="3.5"/>
+											</Node>
+										</Node>
+										<Node id="175" score="34718.85727272727">
+											<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+											<Node id="176" score="34261.92999999999">
+												<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.495000123977661"/>
+												<Node id="177" score="33424.229999999996">
+													<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+												</Node>
+												<Node id="178" score="34680.78">
+													<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+													<Node id="179" score="36356.17999999999">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4150.0"/>
+													</Node>
+													<Node id="180" score="33843.079999999994">
+														<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4150.0"/>
+														<Node id="181" score="33424.229999999996">
+															<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="1.0"/>
+														</Node>
+														<Node id="182" score="34261.92999999999">
+															<SimplePredicate field="double(cam_4)" operator="greaterThan" value="1.0"/>
+														</Node>
+													</Node>
+												</Node>
+											</Node>
+											<Node id="183" score="36775.03">
+												<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.495000123977661"/>
+												<Node id="184" score="37612.729999999996">
+													<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="3.5"/>
+												</Node>
+												<Node id="185" score="35937.33">
+													<SimplePredicate field="double(cam_3)" operator="greaterThan" value="3.5"/>
+												</Node>
+											</Node>
+										</Node>
+									</Node>
+								</Node>
+								<Node id="186" score="50597.08">
+									<SimplePredicate field="double(RAM)" operator="greaterThan" value="10.0"/>
+									<Node id="187" score="45989.729999999996">
+										<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="1.0"/>
+									</Node>
+									<Node id="188" score="55204.43">
+										<SimplePredicate field="double(cam_4)" operator="greaterThan" value="1.0"/>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="189" score="45570.87999999999">
+								<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.620000123977661"/>
+								<Node id="190" score="58555.229999999996">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4150.0"/>
+								</Node>
+								<Node id="191" score="41242.76333333333">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4150.0"/>
+									<Node id="192" score="37612.729999999996">
+										<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="6.5"/>
+									</Node>
+									<Node id="193" score="43057.78">
+										<SimplePredicate field="double(cam_2)" operator="greaterThan" value="6.5"/>
+										<Node id="194" score="41801.229999999996">
+											<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4410.0"/>
+										</Node>
+										<Node id="195" score="44314.329999999994">
+											<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4410.0"/>
+										</Node>
+									</Node>
+								</Node>
+							</Node>
+						</Node>
+						<Node id="196" score="56460.979999999996">
+							<SimplePredicate field="double(cam_3)" operator="greaterThan" value="10.5"/>
+							<Node id="197" score="62743.729999999996">
+								<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.099999904632568"/>
+								<Node id="198" score="66932.23">
+									<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="5.849999904632568"/>
+								</Node>
+								<Node id="199" score="58555.229999999996">
+									<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="5.849999904632568"/>
+								</Node>
+							</Node>
+							<Node id="200" score="50178.229999999996">
+								<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.099999904632568"/>
+								<Node id="201" score="41801.229999999996">
+									<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="1.0"/>
+								</Node>
+								<Node id="202" score="58555.229999999996">
+									<SimplePredicate field="double(cam_4)" operator="greaterThan" value="1.0"/>
+								</Node>
+							</Node>
+						</Node>
+					</Node>
+					<Node id="203" score="23065.74730769229">
+						<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4670.0"/>
+						<Node id="204" score="22698.384901960773">
+							<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.684999942779541"/>
+							<Node id="205" score="20703.60037037037">
+								<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.555000066757202"/>
+								<Node id="206" score="21098.072857142855">
+									<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.505000114440918"/>
+									<Node id="207" score="21752.27666666666">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5500.0"/>
+										<Node id="208" score="19741.796666666665">
+											<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+										</Node>
+										<Node id="209" score="22254.896666666664">
+											<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+											<Node id="210" score="25047.23">
+												<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+											</Node>
+											<Node id="211" score="22001.048181818183">
+												<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+												<Node id="212" score="22743.555">
+													<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="49.0"/>
+													<Node id="213" score="19183.329999999998">
+														<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.414999961853027"/>
+													</Node>
+													<Node id="214" score="23930.296666666665">
+														<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.414999961853027"/>
+														<Node id="215" score="25047.23">
+															<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.4649999141693115"/>
+														</Node>
+														<Node id="216" score="23371.829999999998">
+															<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.4649999141693115"/>
+														</Node>
+													</Node>
+												</Node>
+												<Node id="217" score="21576.75857142857">
+													<SimplePredicate field="double(cam_1)" operator="greaterThan" value="49.0"/>
+													<Node id="218" score="21277.579999999998">
+														<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="3.5"/>
+														<Node id="219" score="21487.005">
+															<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+															<Node id="220" score="21277.579999999998">
+																<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.4649999141693115"/>
+															</Node>
+															<Node id="221" score="21696.43">
+																<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.4649999141693115"/>
+															</Node>
+														</Node>
+														<Node id="222" score="20858.73">
+															<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+														</Node>
+													</Node>
+													<Node id="223" score="23371.829999999998">
+														<SimplePredicate field="double(cam_4)" operator="greaterThan" value="3.5"/>
+													</Node>
+												</Node>
+											</Node>
+										</Node>
+									</Node>
+									<Node id="224" score="19462.56333333333">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5500.0"/>
+										<Node id="225" score="20858.73">
+											<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.450000047683716"/>
+											<Node id="226" score="19183.329999999998">
+												<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="56.0"/>
+											</Node>
+											<Node id="227" score="21417.196666666667">
+												<SimplePredicate field="double(cam_1)" operator="greaterThan" value="56.0"/>
+												<Node id="228" score="20439.879999999997">
+													<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="1.0"/>
+													<Node id="229" score="20858.73">
+														<SimplePredicate field="double(storage)" operator="lessOrEqual" value="96.0"/>
+													</Node>
+													<Node id="230" score="20021.03">
+														<SimplePredicate field="double(storage)" operator="greaterThan" value="96.0"/>
+													</Node>
+												</Node>
+												<Node id="231" score="23371.829999999998">
+													<SimplePredicate field="double(cam_4)" operator="greaterThan" value="1.0"/>
+												</Node>
+											</Node>
+										</Node>
+										<Node id="232" score="16670.23">
+											<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.450000047683716"/>
+										</Node>
+									</Node>
+								</Node>
+								<Node id="233" score="19322.946666666667">
+									<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.505000114440918"/>
+									<Node id="234" score="20858.73">
+										<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="49.0"/>
+									</Node>
+									<Node id="235" score="18555.055">
+										<SimplePredicate field="double(cam_1)" operator="greaterThan" value="49.0"/>
+										<Node id="236" score="18904.096666666665">
+											<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.520000219345093"/>
+										</Node>
+										<Node id="237" score="17507.93">
+											<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.520000219345093"/>
+										</Node>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="238" score="24942.517499999998">
+								<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.555000066757202"/>
+								<Node id="239" score="22838.74818181818">
+									<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="57.0"/>
+									<Node id="240" score="23464.90777777778">
+										<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="3.5"/>
+										<Node id="241" score="20021.03">
+											<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.5"/>
+										</Node>
+										<Node id="242" score="23895.3925">
+											<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.5"/>
+											<Node id="243" score="23371.829999999998">
+												<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="5.0"/>
+												<Node id="244" score="23371.829999999998">
+													<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+												</Node>
+												<Node id="245" score="23371.829999999998">
+													<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+												</Node>
+											</Node>
+											<Node id="246" score="24418.954999999998">
+												<SimplePredicate field="double(cam_2)" operator="greaterThan" value="5.0"/>
+												<Node id="247" score="24209.53">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="5080.0"/>
+												</Node>
+												<Node id="248" score="24488.763333333332">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="5080.0"/>
+												</Node>
+											</Node>
+										</Node>
+									</Node>
+									<Node id="249" score="20021.03">
+										<SimplePredicate field="double(cam_3)" operator="greaterThan" value="3.5"/>
+									</Node>
+								</Node>
+								<Node id="250" score="26722.629999999997">
+									<SimplePredicate field="double(cam_1)" operator="greaterThan" value="57.0"/>
+									<Node id="251" score="23790.68">
+										<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="1.0"/>
+									</Node>
+									<Node id="252" score="27255.71181818182">
+										<SimplePredicate field="double(cam_3)" operator="greaterThan" value="1.0"/>
+										<Node id="253" score="25256.655">
+											<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+											<Node id="254" score="23371.829999999998">
+												<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="86.0"/>
+											</Node>
+											<Node id="255" score="27141.479999999996">
+												<SimplePredicate field="double(cam_1)" operator="greaterThan" value="86.0"/>
+											</Node>
+										</Node>
+										<Node id="256" score="28398.029999999995">
+											<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+											<Node id="257" score="26722.629999999997">
+												<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.609999895095825"/>
+												<Node id="258" score="28398.03">
+													<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.5899999141693115"/>
+												</Node>
+												<Node id="259" score="26164.163333333334">
+													<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.5899999141693115"/>
+													<Node id="260" score="26303.78">
+														<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="3.5"/>
+													</Node>
+													<Node id="261" score="25884.93">
+														<SimplePredicate field="double(cam_3)" operator="greaterThan" value="3.5"/>
+													</Node>
+												</Node>
+											</Node>
+											<Node id="262" score="30631.896666666667">
+												<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.609999895095825"/>
+											</Node>
+										</Node>
+									</Node>
+								</Node>
+							</Node>
+						</Node>
+						<Node id="263" score="41801.229999999996">
+							<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.684999942779541"/>
+						</Node>
+					</Node>
+				</Node>
+			</Node>
+			<Node id="264" score="67073.81309859158">
+				<SimplePredicate field="double(cam_2)" operator="greaterThan" value="9.0"/>
+				<Node id="265" score="54310.88333333331">
+					<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="9.0"/>
+					<Node id="266" score="47335.12696969696">
+						<SimplePredicate field="double(storage)" operator="lessOrEqual" value="192.0"/>
+						<Node id="267" score="52516.809166666644">
+							<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4815.0"/>
+							<Node id="268" score="48398.11749999999">
+								<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+								<Node id="269" score="55563.44428571428">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="3555.0"/>
+									<Node id="270" score="61347.56333333333">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="2878.5"/>
+										<Node id="271" score="58555.229999999996">
+											<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="2753.0"/>
+										</Node>
+										<Node id="272" score="66932.23">
+											<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="2753.0"/>
+										</Node>
+									</Node>
+									<Node id="273" score="51225.354999999996">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="2878.5"/>
+										<Node id="274" score="41801.229999999996">
+											<SimplePredicate field="double(storage)" operator="lessOrEqual" value="96.0"/>
+										</Node>
+										<Node id="275" score="54366.73">
+											<SimplePredicate field="double(storage)" operator="greaterThan" value="96.0"/>
+											<Node id="276" score="50178.229999999996">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="3026.0"/>
+											</Node>
+											<Node id="277" score="56460.979999999996">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="3026.0"/>
+											</Node>
+										</Node>
+									</Node>
+								</Node>
+								<Node id="278" score="42825.08555555555">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="3555.0"/>
+									<Node id="279" score="58555.229999999996">
+										<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="5.944999933242798"/>
+									</Node>
+									<Node id="280" score="40858.81749999999">
+										<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="5.944999933242798"/>
+										<Node id="281" score="38330.758571428574">
+											<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="6.5"/>
+											<Node id="282" score="30492.28">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4250.0"/>
+												<Node id="283" score="27560.329999999998">
+													<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="5.0"/>
+												</Node>
+												<Node id="284" score="33424.229999999996">
+													<SimplePredicate field="double(RAM)" operator="greaterThan" value="5.0"/>
+												</Node>
+											</Node>
+											<Node id="285" score="41466.14999999999">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4250.0"/>
+												<Node id="286" score="45989.729999999996">
+													<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="56.0"/>
+												</Node>
+												<Node id="287" score="40335.255">
+													<SimplePredicate field="double(cam_1)" operator="greaterThan" value="56.0"/>
+													<Node id="288" score="38869.28">
+														<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.599999904632568"/>
+													</Node>
+													<Node id="289" score="41801.229999999996">
+														<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.599999904632568"/>
+													</Node>
+												</Node>
+											</Node>
+										</Node>
+										<Node id="290" score="58555.229999999996">
+											<SimplePredicate field="double(cam_3)" operator="greaterThan" value="6.5"/>
+										</Node>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="291" score="60754.19249999999">
+								<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+								<Node id="292" score="83686.23">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="3662.5"/>
+								</Node>
+								<Node id="293" score="57478.18714285713">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="3662.5"/>
+									<Node id="294" score="35937.33">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4262.5"/>
+									</Node>
+									<Node id="295" score="61068.329999999994">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4262.5"/>
+										<Node id="296" score="64921.749999999985">
+											<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="57.0"/>
+											<Node id="297" score="62324.87999999999">
+												<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.625"/>
+												<Node id="298" score="60789.09666666666">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4607.0"/>
+													<Node id="299" score="61906.03">
+														<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="49.0"/>
+														<Node id="300" score="61068.329999999994">
+															<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="3.5"/>
+														</Node>
+														<Node id="301" score="62743.729999999996">
+															<SimplePredicate field="double(cam_3)" operator="greaterThan" value="3.5"/>
+														</Node>
+													</Node>
+													<Node id="302" score="58555.229999999996">
+														<SimplePredicate field="double(cam_1)" operator="greaterThan" value="49.0"/>
+													</Node>
+												</Node>
+												<Node id="303" score="66932.23">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4607.0"/>
+												</Node>
+											</Node>
+											<Node id="304" score="75309.23">
+												<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.625"/>
+											</Node>
+										</Node>
+										<Node id="305" score="41801.229999999996">
+											<SimplePredicate field="double(cam_1)" operator="greaterThan" value="57.0"/>
+										</Node>
+									</Node>
+								</Node>
+							</Node>
+						</Node>
+						<Node id="306" score="33517.30777777777">
+							<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4815.0"/>
+							<Node id="307" score="26094.355">
+								<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.585000038146973"/>
+								<Node id="308" score="21696.43">
+									<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="3.5"/>
+									<Node id="309" score="20858.73">
+										<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+									</Node>
+									<Node id="310" score="22534.129999999997">
+										<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+									</Node>
+								</Node>
+								<Node id="311" score="30492.28">
+									<SimplePredicate field="double(cam_3)" operator="greaterThan" value="3.5"/>
+									<Node id="312" score="31748.829999999998">
+										<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+									</Node>
+									<Node id="313" score="29235.73">
+										<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="314" score="39455.67">
+								<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.585000038146973"/>
+								<Node id="315" score="50178.229999999996">
+									<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="2.5"/>
+								</Node>
+								<Node id="316" score="36775.03">
+									<SimplePredicate field="double(cam_4)" operator="greaterThan" value="2.5"/>
+									<Node id="317" score="37612.729999999996">
+										<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="7.0"/>
+									</Node>
+									<Node id="318" score="35937.33">
+										<SimplePredicate field="double(RAM)" operator="greaterThan" value="7.0"/>
+									</Node>
+								</Node>
+							</Node>
+						</Node>
+					</Node>
+					<Node id="319" score="73494.21333333333">
+						<SimplePredicate field="double(storage)" operator="greaterThan" value="192.0"/>
+						<Node id="320" score="78939.26333333332">
+							<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="78.0"/>
+							<Node id="321" score="85780.48">
+								<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="44.0"/>
+								<Node id="322" score="75309.23">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="2700.5"/>
+								</Node>
+								<Node id="323" score="89270.89666666667">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="2700.5"/>
+									<Node id="324" score="92063.23">
+										<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.615000009536743"/>
+									</Node>
+									<Node id="325" score="83686.23">
+										<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.615000009536743"/>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="326" score="73466.29">
+								<SimplePredicate field="double(cam_1)" operator="greaterThan" value="44.0"/>
+								<Node id="327" score="60649.479999999996">
+									<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.684999942779541"/>
+									<Node id="328" score="58555.229999999996">
+										<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="10.0"/>
+									</Node>
+									<Node id="329" score="62743.729999999996">
+										<SimplePredicate field="double(RAM)" operator="greaterThan" value="10.0"/>
+									</Node>
+								</Node>
+								<Node id="330" score="82010.83">
+									<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.684999942779541"/>
+									<Node id="331" score="81173.12999999999">
+										<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="3.5"/>
+									</Node>
+									<Node id="332" score="83686.23">
+										<SimplePredicate field="double(cam_4)" operator="greaterThan" value="3.5"/>
+									</Node>
+								</Node>
+							</Node>
+						</Node>
+						<Node id="333" score="57159.06333333333">
+							<SimplePredicate field="double(cam_1)" operator="greaterThan" value="78.0"/>
+							<Node id="334" score="50178.229999999996">
+								<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.684999942779541"/>
+							</Node>
+							<Node id="335" score="60649.479999999996">
+								<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.684999942779541"/>
+								<Node id="336" score="62743.729999999996">
+									<SimplePredicate field="double(RAM)" operator="lessOrEqual" value="10.0"/>
+								</Node>
+								<Node id="337" score="58555.229999999996">
+									<SimplePredicate field="double(RAM)" operator="greaterThan" value="10.0"/>
+								</Node>
+							</Node>
+						</Node>
+					</Node>
+				</Node>
+				<Node id="338" score="89163.49923076923">
+					<SimplePredicate field="double(cam_3)" operator="greaterThan" value="9.0"/>
+					<Node id="339" score="86031.79">
+						<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="7.25"/>
+						<Node id="340" score="75631.4223076923">
+							<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.569999933242798"/>
+							<Node id="341" score="90387.82999999999">
+								<SimplePredicate field="double(cam_1)" operator="lessOrEqual" value="30.0"/>
+								<Node id="342" score="66932.23">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="3392.0"/>
+								</Node>
+								<Node id="343" score="96251.73">
+									<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="3392.0"/>
+									<Node id="344" score="108817.23">
+										<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.299999952316284"/>
+									</Node>
+									<Node id="345" score="92063.23">
+										<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.299999952316284"/>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="346" score="66408.6675">
+								<SimplePredicate field="double(cam_1)" operator="greaterThan" value="30.0"/>
+								<Node id="347" score="67530.58714285713">
+									<SimplePredicate field="double(cam_3)" operator="lessOrEqual" value="14.5"/>
+									<Node id="348" score="66932.23">
+										<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="1.0"/>
+									</Node>
+									<Node id="349" score="67979.355">
+										<SimplePredicate field="double(cam_4)" operator="greaterThan" value="1.0"/>
+									</Node>
+								</Node>
+								<Node id="350" score="58555.229999999996">
+									<SimplePredicate field="double(cam_3)" operator="greaterThan" value="14.5"/>
+								</Node>
+							</Node>
+						</Node>
+						<Node id="351" score="97298.855">
+							<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.569999933242798"/>
+							<Node id="352" score="93319.78">
+								<SimplePredicate field="double(storage)" operator="lessOrEqual" value="384.0"/>
+								<Node id="353" score="90492.5425">
+									<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.7900002002716064"/>
+									<Node id="354" score="94157.48">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4650.0"/>
+										<Node id="355" score="96251.73">
+											<SimplePredicate field="double(cam_4)" operator="lessOrEqual" value="5.5"/>
+											<Node id="356" score="90667.06333333334">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4326.0"/>
+												<Node id="357" score="92063.23">
+													<SimplePredicate field="double(cam_2)" operator="lessOrEqual" value="38.0"/>
+												</Node>
+												<Node id="358" score="87874.73">
+													<SimplePredicate field="double(cam_2)" operator="greaterThan" value="38.0"/>
+												</Node>
+											</Node>
+											<Node id="359" score="104628.73">
+												<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4326.0"/>
+												<Node id="360" score="108817.23">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="lessOrEqual" value="4426.0"/>
+												</Node>
+												<Node id="361" score="100440.23">
+													<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4426.0"/>
+												</Node>
+											</Node>
+										</Node>
+										<Node id="362" score="83686.23">
+											<SimplePredicate field="double(cam_4)" operator="greaterThan" value="5.5"/>
+										</Node>
+									</Node>
+									<Node id="363" score="79497.73">
+										<SimplePredicate field="double(Battery Capacity (mAh))" operator="greaterThan" value="4650.0"/>
+										<Node id="364" score="75309.23">
+											<SimplePredicate field="double(storage)" operator="lessOrEqual" value="192.0"/>
+										</Node>
+										<Node id="365" score="83686.23">
+											<SimplePredicate field="double(storage)" operator="greaterThan" value="192.0"/>
+										</Node>
+									</Node>
+								</Node>
+								<Node id="366" score="104628.73">
+									<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.7900002002716064"/>
+									<Node id="367" score="100440.23">
+										<SimplePredicate field="double(screen_size(inches))" operator="lessOrEqual" value="6.8500001430511475"/>
+									</Node>
+									<Node id="368" score="108817.23">
+										<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="6.8500001430511475"/>
+									</Node>
+								</Node>
+							</Node>
+							<Node id="369" score="117194.23">
+								<SimplePredicate field="double(storage)" operator="greaterThan" value="384.0"/>
+							</Node>
+						</Node>
+					</Node>
+					<Node id="370" score="167456.22999999998">
+						<SimplePredicate field="double(screen_size(inches))" operator="greaterThan" value="7.25"/>
+					</Node>
+				</Node>
+			</Node>
+		</Node>
+	</TreeModel>
+</PMML>
